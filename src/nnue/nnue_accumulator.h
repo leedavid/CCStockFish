@@ -23,7 +23,7 @@
 
 #include "nnue_architecture.h"
 
-namespace Stockfish::Eval::NNUE {
+namespace CCStockfish::Eval::NNUE {
 
   // Class that holds the result of affine transformation of input features
   struct alignas(CacheLineSize) Accumulator {

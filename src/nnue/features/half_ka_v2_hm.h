@@ -26,11 +26,11 @@
 #include "../../evaluate.h"
 #include "../../misc.h"
 
-namespace Stockfish {
+namespace CCStockfish {
   struct StateInfo;
 }
 
-namespace Stockfish::Eval::NNUE::Features {
+namespace CCStockfish::Eval::NNUE::Features {
 
   // Feature HalfKAv2_hm: Combination of the position of own king and the position of pieces.
   class HalfKAv2_hm {

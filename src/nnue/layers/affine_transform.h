@@ -53,7 +53,7 @@
     - accumulation happens directly to int32s
 */
 
-namespace Stockfish::Eval::NNUE::Layers {
+namespace CCStockfish::Eval::NNUE::Layers {
 
 // Fallback implementation for older/other architectures.
 // Identical for both approaches. Requires the input to be padded to at least 16 values.

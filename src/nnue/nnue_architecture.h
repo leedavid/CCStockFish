@@ -31,7 +31,7 @@
 #include "layers/clipped_relu.h"
 #include "layers/sqr_clipped_relu.h"
 
-namespace Stockfish::Eval::NNUE {
+namespace CCStockfish::Eval::NNUE {
 
 // Input features used in evaluation function
 using FeatureSet = Features::HalfKAv2_hm;

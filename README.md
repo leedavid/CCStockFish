@@ -1,7 +1,7 @@
 ## Overview
 
 
-[CCStockfish](https://Stockfishchess.org) is a free, powerful UCI chess engine
+[CCStockfish](https://CCStockfishchess.org) is a free, powerful UCI chess engine
 derived from Glaurung 2.1. CCStockfish is not a complete chess program and requires a
 UCI-compatible graphical user interface (GUI) (e.g. XBoard with PolyGlot, Scid,
 Cute Chess, eboard, Arena, Sigma Chess, Shredder, Chess Partner or Fritz) in order

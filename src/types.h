@@ -155,7 +155,7 @@ struct Bitboard {
     }
 
     constexpr operator unsigned() const {
-        return b64[1];
+        return unsigned(b64[1]);
     }
 
     constexpr Bitboard operator << (const unsigned int bits) const {

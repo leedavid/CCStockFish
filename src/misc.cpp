@@ -139,9 +139,9 @@ public:
 } // namespace
 
 
-/// engine_info() returns the full name of the current CCCCStockfish version. This
-/// will be either "CCCCStockfish YYYY-MM-DD" (where YYYY-MM-DD is the date when
-/// the program was compiled) or "CCCCStockfish <Version>", depending on whether
+/// engine_info() returns the full name of the current CCStockfish version. This
+/// will be either "CCStockfish YYYY-MM-DD" (where YYYY-MM-DD is the date when
+/// the program was compiled) or "CCStockfish <Version>", depending on whether
 /// Version is empty.
 
 string engine_info(bool to_uci) {
@@ -150,7 +150,7 @@ string engine_info(bool to_uci) {
   string month, day, year;
   stringstream ss, date(__DATE__); // From compiler, format is "Sep 21 2008"
 
-  ss << "CCCCStockfish " << Version << setfill('0');
+  ss << "CCStockfish " << Version << setfill('0');
 
   if (Version.empty())
   {
@@ -158,7 +158,7 @@ string engine_info(bool to_uci) {
       ss << year << "-" << setw(2) << (1 + months.find(month) / 4) << "-" << setw(2) << day;
   }
 
-  ss << (to_uci ? "\nid author " : " by ") << "the CCCCStockfish developers, Hereby grateful for Fairy-CCStockfish & CCStockfish Teams & Pikafish Teams";
+  ss << (to_uci ? "\nid author " : " by ") << "the CCStockfish developers, Hereby grateful for Fairy-CCStockfish & CCStockfish Teams & Pikafish Teams";
 
   return ss.str();
 }

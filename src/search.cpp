@@ -627,7 +627,7 @@ namespace {
 
         // Partial workaround for the graph history interaction problem
         // For high rule60 counts don't produce transposition table cutoffs.
-        if (pos.rule60_count() < 110)
+        if (pos.rule60_count() < 90)
             return ttValue;
     }
 

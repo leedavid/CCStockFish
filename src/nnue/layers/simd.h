@@ -53,7 +53,7 @@
 #define VNNI_PREFIX ""
 #endif
 
-namespace Stockfish::Simd {
+namespace CCStockfish::Simd {
 
 #if defined (USE_AVX512)
 
