@@ -1,13 +1,13 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
-  Copyright (C) 2004-2022 The Stockfish developers (see AUTHORS file)
+  CCStockfish, a UCI chess playing engine derived from Glaurung 2.1
+  Copyright (C) 2004-2022 The CCStockfish developers (see AUTHORS file)
 
-  Stockfish is free software: you can redistribute it and/or modify
+  CCStockfish is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  CCStockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
@@ -34,7 +34,7 @@
 #include "tt.h"
 #include "uci.h"
 
-namespace Stockfish {
+namespace CCStockfish {
 
 namespace Search {
 
@@ -350,7 +350,7 @@ void Thread::search() {
               // Adjust the effective depth searched, but ensuring at least one effective increment for every
               // four searchAgain steps (see issue #2717).
               Depth adjustedDepth = std::max(1, rootDepth - failedHighCnt - 3 * (searchAgainCounter + 1) / 4);
-              bestValue = Stockfish::search<Root>(rootPos, ss, alpha, beta, adjustedDepth, false);
+              bestValue = CCStockfish::search<Root>(rootPos, ss, alpha, beta, adjustedDepth, false);
 
               // Bring the best move to the front. It is critical that sorting
               // is done with a stable algorithm because all the values but the
@@ -1794,4 +1794,4 @@ bool RootMove::extract_ponder_from_tt(Position& pos) {
     return pv.size() > 1;
 }
 
-} // namespace Stockfish
+} // namespace CCStockfish

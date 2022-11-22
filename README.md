@@ -1,15 +1,14 @@
 ## Overview
 
-[![Build Status](https://github.com/official-stockfish/Stockfish/actions/workflows/stockfish.yml/badge.svg)](https://github.com/official-stockfish/Stockfish/actions)
 
-[Stockfish](https://stockfishchess.org) is a free, powerful UCI chess engine
-derived from Glaurung 2.1. Stockfish is not a complete chess program and requires a
+[CCStockfish](https://Stockfishchess.org) is a free, powerful UCI chess engine
+derived from Glaurung 2.1. CCStockfish is not a complete chess program and requires a
 UCI-compatible graphical user interface (GUI) (e.g. XBoard with PolyGlot, Scid,
 Cute Chess, eboard, Arena, Sigma Chess, Shredder, Chess Partner or Fritz) in order
 to be used comfortably. Read the documentation for your GUI of choice for information
-about how to use Stockfish with it.
+about how to use CCStockfish with it.
 
-The Stockfish engine features two evaluation functions for chess. The efficiently 
+The CCStockfish engine features two evaluation functions for chess. The efficiently 
 updatable neural network (NNUE) based evaluation is the default and by far the strongest.
 The classical evaluation based on handcrafted terms remains available. The strongest 
 network is integrated in the binary and downloaded automatically during the build process.
@@ -18,20 +17,20 @@ avx2, neon, or similar).
 
 ## Files
 
-This distribution of Stockfish consists of the following files:
+This distribution of CCStockfish consists of the following files:
 
-  * [README.md](https://github.com/official-stockfish/Stockfish/blob/master/README.md),
+  * [README.md](https://github.com/official-CCStockfish/CCStockfish/blob/master/README.md),
     the file you are currently reading.
 
-  * [Copying.txt](https://github.com/official-stockfish/Stockfish/blob/master/Copying.txt),
+  * [Copying.txt](https://github.com/official-CCStockfish/CCStockfish/blob/master/Copying.txt),
     a text file containing the GNU General Public License version 3.
 
-  * [AUTHORS](https://github.com/official-stockfish/Stockfish/blob/master/AUTHORS), 
+  * [AUTHORS](https://github.com/official-CCStockfish/CCStockfish/blob/master/AUTHORS), 
     a text file with the list of authors for the project
 
-  * [src](https://github.com/official-stockfish/Stockfish/tree/master/src),
+  * [src](https://github.com/official-CCStockfish/CCStockfish/tree/master/src),
     a subdirectory containing the full source code, including a Makefile
-    that can be used to compile Stockfish on Unix-like systems.
+    that can be used to compile CCStockfish on Unix-like systems.
 
   * a file with the .nnue extension, storing the neural network for the NNUE
     evaluation. Binary distributions will have this file embedded.
@@ -40,12 +39,12 @@ This distribution of Stockfish consists of the following files:
 
 The Universal Chess Interface (UCI) is a standard protocol used to communicate with
 a chess engine, and is the recommended way to do so for typical graphical user interfaces
-(GUI) or chess tools. Stockfish implements the majority of its options as described
+(GUI) or chess tools. CCStockfish implements the majority of its options as described
 in [the UCI protocol](https://www.shredderchess.com/download/div/uci.zip).
 
-Developers can see the default values for UCI options available in Stockfish by typing
-`./stockfish uci` in a terminal, but the majority of users will typically see them and
-change them via a chess GUI. This is a list of available UCI options in Stockfish:
+Developers can see the default values for UCI options available in CCStockfish by typing
+`./CCStockfish uci` in a terminal, but the majority of users will typically see them and
+change them via a chess GUI. This is a list of available UCI options in CCStockfish:
 
   * #### Threads
     The number of CPU threads used for searching a position. For best performance, set
@@ -58,7 +57,7 @@ change them via a chess GUI. This is a list of available UCI options in Stockfis
     Clear the hash table.
 
   * #### Ponder
-    Let Stockfish ponder its next move while the opponent is thinking.
+    Let CCStockfish ponder its next move while the opponent is thinking.
 
   * #### MultiPV
     Output the N best lines (principal variations, PVs) when searching.
@@ -79,7 +78,7 @@ change them via a chess GUI. This is a list of available UCI options in Stockfis
     An option handled by your GUI.
 
   * #### UCI_Chess960
-    An option handled by your GUI. If true, Stockfish will play Chess960.
+    An option handled by your GUI. If true, CCStockfish will play Chess960.
 
   * #### UCI_ShowWDL
     If enabled, show approximate WDL statistics as part of the engine output.
@@ -94,7 +93,7 @@ change them via a chess GUI. This is a list of available UCI options in Stockfis
     This Elo rating has been calibrated at a time control of 60s+0.6s and anchored to CCRL 40/4.
 
   * #### Skill Level
-    Lower the Skill Level in order to make Stockfish play weaker (see also UCI_LimitStrength).
+    Lower the Skill Level in order to make CCStockfish play weaker (see also UCI_LimitStrength).
     Internally, MultiPV is enabled, and with a certain probability depending on the Skill Level a
     weaker move will be played.
 
@@ -128,7 +127,7 @@ change them via a chess GUI. This is a list of available UCI options in Stockfis
     avoid losses on time in those cases.
 
   * #### Slow Mover
-    Lower values will make Stockfish take less time in games, higher values will
+    Lower values will make CCStockfish take less time in games, higher values will
     make it think longer.
 
   * #### nodestime
@@ -176,15 +175,15 @@ The NNUE evaluation computes this value with a neural network based on basic
 inputs (e.g. piece positions only). The network is optimized and trained
 on the evaluations of millions of positions at moderate search depth.
 
-The NNUE evaluation was first introduced in shogi, and ported to Stockfish afterward.
+The NNUE evaluation was first introduced in shogi, and ported to CCStockfish afterward.
 It can be evaluated efficiently on CPUs, and exploits the fact that only parts
 of the neural network need to be updated after a typical chess move.
-[The nodchip repository](https://github.com/nodchip/Stockfish) provided the first 
+[The nodchip repository](https://github.com/nodchip/CCStockfish) provided the first 
 version of the needed tools to train and develop the NNUE networks. Today, more 
 advanced training tools are available in 
 [the nnue-pytorch repository](https://github.com/glinscott/nnue-pytorch/), 
 while data generation tools are available in 
-[a dedicated branch](https://github.com/official-stockfish/Stockfish/tree/tools).
+[a dedicated branch](https://github.com/official-CCStockfish/CCStockfish/tree/tools).
 
 On CPUs supporting modern vector instructions (avx2 and similar), the NNUE evaluation
 results in much stronger playing strength, even if the nodes per second computed by
@@ -192,9 +191,9 @@ the engine is somewhat lower (roughly 80% of nps is typical).
 
 Notes:
 
-1) the NNUE evaluation depends on the Stockfish binary and the network parameter file 
+1) the NNUE evaluation depends on the CCStockfish binary and the network parameter file 
 (see the EvalFile UCI option). Not every parameter file is compatible with a given
-Stockfish binary, but the default value of the EvalFile UCI option is the name of a 
+CCStockfish binary, but the default value of the EvalFile UCI option is the name of a 
 network that is guaranteed to be compatible with that binary.
 
 2) to use the NNUE evaluation, the additional data file with neural network parameters
@@ -203,7 +202,7 @@ be downloaded. The filename for the default (recommended) net can be found as th
 value of the `EvalFile` UCI option, with the format `nn-[SHA256 first 12 digits].nnue`
 (for instance, `nn-c157e0a5755b.nnue`). This file can be downloaded from
 ```
-https://tests.stockfishchess.org/api/nn/[filename]
+https://tests.CCStockfishchess.org/api/nn/[filename]
 ```
 replacing `[filename]` as needed.
 
@@ -234,11 +233,11 @@ the 50-move rule.
 
 ## Large Pages
 
-Stockfish supports large pages on Linux and Windows. Large pages make
+CCStockfish supports large pages on Linux and Windows. Large pages make
 the hash access more efficient, improving the engine speed, especially
 on large hash sizes. Typical increases are 5..10% in terms of nodes per
 second, but speed increases up to 30% have been measured. The support is
-automatic. Stockfish attempts to use large pages when available and
+automatic. CCStockfish attempts to use large pages when available and
 will fall back to regular memory allocation when this is not the case.
 
 ### Support on Linux
@@ -254,15 +253,15 @@ The use of large pages requires "Lock Pages in Memory" privilege. See
 on how to enable this privilege, then run [RAMMap](https://docs.microsoft.com/en-us/sysinternals/downloads/rammap)
 to double-check that large pages are used. We suggest that you reboot
 your computer after you have enabled large pages, because long Windows
-sessions suffer from memory fragmentation, which may prevent Stockfish
+sessions suffer from memory fragmentation, which may prevent CCStockfish
 from getting large pages: a fresh session is better in this regard.
 
-## Compiling Stockfish yourself from the sources
+## Compiling CCStockfish yourself from the sources
 
-Stockfish has support for 32 or 64-bit CPUs, certain hardware
+CCStockfish has support for 32 or 64-bit CPUs, certain hardware
 instructions, big-endian machines such as Power PC, and other platforms.
 
-On Unix-like systems, it should be easy to compile Stockfish
+On Unix-like systems, it should be easy to compile CCStockfish
 directly from the source code with the included Makefile in the folder
 `src`. In general it is recommended to run `make help` to see a list of make
 targets with corresponding descriptions.
@@ -278,59 +277,59 @@ When not using the Makefile to compile (for instance, with Microsoft MSVC) you
 need to manually set/unset some switches in the compiler command line; see
 file *types.h* for a quick reference.
 
-When reporting an issue or a bug, please tell us which Stockfish version
+When reporting an issue or a bug, please tell us which CCStockfish version
 and which compiler you used to create your executable. This information
 can be found by typing the following command in a console:
 
 ```
-    ./stockfish compiler
+    ./CCStockfish compiler
 ```
 
 ## Understanding the code base and participating in the project
 
-Stockfish's improvement over the last decade has been a great community
+CCStockfish's improvement over the last decade has been a great community
 effort. There are a few ways to help contribute to its growth.
 
 ### Donating hardware
 
-Improving Stockfish requires a massive amount of testing. You can donate
+Improving CCStockfish requires a massive amount of testing. You can donate
 your hardware resources by installing the [Fishtest Worker](https://github.com/glinscott/fishtest/wiki/Running-the-worker:-overview)
-and view the current tests on [Fishtest](https://tests.stockfishchess.org/tests).
+and view the current tests on [Fishtest](https://tests.CCStockfishchess.org/tests).
 
 ### Improving the code
 
 If you want to help improve the code, there are several valuable resources:
 
 * [In this wiki,](https://www.chessprogramming.org) many techniques used in
-Stockfish are explained with a lot of background information.
+CCStockfish are explained with a lot of background information.
 
-* [The section on Stockfish](https://www.chessprogramming.org/Stockfish)
-describes many features and techniques used by Stockfish. However, it is
-generic rather than being focused on Stockfish's precise implementation.
+* [The section on CCStockfish](https://www.chessprogramming.org/CCStockfish)
+describes many features and techniques used by CCStockfish. However, it is
+generic rather than being focused on CCStockfish's precise implementation.
 Nevertheless, a helpful resource.
 
-* The latest source can always be found on [GitHub](https://github.com/official-stockfish/Stockfish).
-Discussions about Stockfish take place these days mainly in the [FishCooking](https://groups.google.com/forum/#!forum/fishcooking)
-group and on the [Stockfish Discord channel](https://discord.gg/nv8gDtt).
-The engine testing is done on [Fishtest](https://tests.stockfishchess.org/tests).
-If you want to help improve Stockfish, please read this [guideline](https://github.com/glinscott/fishtest/wiki/Creating-my-first-test)
-first, where the basics of Stockfish development are explained.
+* The latest source can always be found on [GitHub](https://github.com/official-CCStockfish/CCStockfish).
+Discussions about CCStockfish take place these days mainly in the [FishCooking](https://groups.google.com/forum/#!forum/fishcooking)
+group and on the [CCStockfish Discord channel](https://discord.gg/nv8gDtt).
+The engine testing is done on [Fishtest](https://tests.CCStockfishchess.org/tests).
+If you want to help improve CCStockfish, please read this [guideline](https://github.com/glinscott/fishtest/wiki/Creating-my-first-test)
+first, where the basics of CCStockfish development are explained.
 
 
 ## Terms of use
 
-Stockfish is free, and distributed under the **GNU General Public License version 3**
+CCStockfish is free, and distributed under the **GNU General Public License version 3**
 (GPL v3). Essentially, this means you are free to do almost exactly
 what you want with the program, including distributing it among your
 friends, making it available for download from your website, selling
 it (either by itself or as part of some bigger software package), or
 using it as the starting point for a software project of your own.
 
-The only real limitation is that whenever you distribute Stockfish in
+The only real limitation is that whenever you distribute CCStockfish in
 some way, you MUST always include the license and the full source code
 (or a pointer to where the source code can be found) to generate the 
 exact binary you are distributing. If you make any changes to the
 source code, these changes must also be made available under the GPL v3.
 
 For full details, read the copy of the GPL v3 found in the file named
-[*Copying.txt*](https://github.com/official-stockfish/Stockfish/blob/master/Copying.txt).
+[*Copying.txt*](https://github.com/official-CCStockfish/CCStockfish/blob/master/Copying.txt).

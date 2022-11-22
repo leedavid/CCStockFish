@@ -1,12 +1,12 @@
-# CCStockFish, a UCI chess playing engine derived from Stockfish
-# Copyright (C) 2004-2022 The CCStockFish developers (see AUTHORS file)
+# CCCCStockfish, a UCI chess playing engine derived from CCStockfish
+# Copyright (C) 2004-2022 The CCCCStockfish developers (see AUTHORS file)
 #
-# CCStockFish is free software: you can redistribute it and/or modify
+# CCCCStockfish is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# CCStockFish is distributed in the hope that it will be useful,
+# CCCCStockfish is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
@@ -39,9 +39,9 @@ endif
 
 ### Executable name
 ifeq ($(target_windows),yes)
-	EXE = CCStockFish.exe
+	EXE = CCCCStockfish.exe
 else
-	EXE = CCStockFish
+	EXE = CCCCStockfish
 endif
 
 ### Installation dir definitions
@@ -730,7 +730,7 @@ endif
 
 help:
 	@echo ""
-	@echo "To compile CCStockFish, type: "
+	@echo "To compile CCCCStockfish, type: "
 	@echo ""
 	@echo "make target ARCH=arch [COMP=compiler] [COMPCXX=cxx]"
 	@echo ""
@@ -835,16 +835,16 @@ clean: objclean profileclean
 
 # clean binaries and objects
 objclean:
-	@rm -f CCStockFish CCStockFish.exe *.o ./compression/*.o ./nnue/*.o ./nnue/features/*.o
+	@rm -f CCCCStockfish CCCCStockfish.exe *.o ./compression/*.o ./nnue/*.o ./nnue/features/*.o
 
 # clean auxiliary profiling files
 profileclean:
 	@rm -rf profdir
 	@rm -f bench.txt *.gcda *.gcno ./compression/*.gcda ./nnue/*.gcda ./nnue/features/*.gcda *.s
-	@rm -f CCStockFish.profdata *.profraw
-	@rm -f CCStockFish.*args*
-	@rm -f CCStockFish.*lt*
-	@rm -f CCStockFish.res
+	@rm -f CCCCStockfish.profdata *.profraw
+	@rm -f CCCCStockfish.*args*
+	@rm -f CCCCStockfish.*lt*
+	@rm -f CCCCStockfish.res
 	@rm -f ./-lstdc++.res
 
 default:
@@ -922,9 +922,9 @@ clang-profile-make:
 	all
 
 clang-profile-use:
-	$(XCRUN) llvm-profdata merge -output=CCStockFish.profdata *.profraw
+	$(XCRUN) llvm-profdata merge -output=CCCCStockfish.profdata *.profraw
 	$(MAKE) ARCH=$(ARCH) COMP=$(COMP) \
-	EXTRACXXFLAGS='-fprofile-instr-use=CCStockFish.profdata' \
+	EXTRACXXFLAGS='-fprofile-instr-use=CCCCStockfish.profdata' \
 	EXTRALDFLAGS='-fprofile-use ' \
 	all
 

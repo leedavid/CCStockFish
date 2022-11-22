@@ -1,13 +1,13 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
-  Copyright (C) 2004-2022 The Stockfish developers (see AUTHORS file)
+  CCStockfish, a UCI chess playing engine derived from Glaurung 2.1
+  Copyright (C) 2004-2022 The CCStockfish developers (see AUTHORS file)
 
-  Stockfish is free software: you can redistribute it and/or modify
+  CCStockfish is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  CCStockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
@@ -64,7 +64,7 @@ typedef WORD(*fun5_t)();
 
 using namespace std;
 
-namespace Stockfish {
+namespace CCStockfish {
 
 namespace {
 
@@ -139,9 +139,9 @@ public:
 } // namespace
 
 
-/// engine_info() returns the full name of the current CCStockFish version. This
-/// will be either "CCStockFish YYYY-MM-DD" (where YYYY-MM-DD is the date when
-/// the program was compiled) or "CCStockFish <Version>", depending on whether
+/// engine_info() returns the full name of the current CCCCStockfish version. This
+/// will be either "CCCCStockfish YYYY-MM-DD" (where YYYY-MM-DD is the date when
+/// the program was compiled) or "CCCCStockfish <Version>", depending on whether
 /// Version is empty.
 
 string engine_info(bool to_uci) {
@@ -150,7 +150,7 @@ string engine_info(bool to_uci) {
   string month, day, year;
   stringstream ss, date(__DATE__); // From compiler, format is "Sep 21 2008"
 
-  ss << "CCStockFish " << Version << setfill('0');
+  ss << "CCCCStockfish " << Version << setfill('0');
 
   if (Version.empty())
   {
@@ -158,7 +158,7 @@ string engine_info(bool to_uci) {
       ss << year << "-" << setw(2) << (1 + months.find(month) / 4) << "-" << setw(2) << day;
   }
 
-  ss << (to_uci ? "\nid author " : " by ") << "the CCStockFish developers, Hereby grateful for Fairy-Stockfish & Stockfish Teams & Pikafish Teams";
+  ss << (to_uci ? "\nid author " : " by ") << "the CCCCStockfish developers, Hereby grateful for Fairy-CCStockfish & CCStockfish Teams & Pikafish Teams";
 
   return ss.str();
 }
@@ -689,4 +689,4 @@ std::stringstream read_zipped_nnue(const std::string& fpath) {
     return ss;
 }
 
-} // namespace Stockfish
+} // namespace CCStockfish

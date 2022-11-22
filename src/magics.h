@@ -1,11 +1,11 @@
 /*
-  CCStockFish, a UCI chess variant playing engine derived from Stockfish
+  CCCCStockfish, a UCI chess variant playing engine derived from CCStockfish
   Copyright (C) 2018-2022 PikaCat++
-  CCStockFish is free software: you can redistribute it and/or modify
+  CCCCStockfish is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
-  CCStockFish is distributed in the hope that it will be useful,
+  CCCCStockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
@@ -18,7 +18,7 @@
 
 #include "types.h"
 
-namespace Stockfish {
+namespace CCStockfish {
 
 #define B(h, l) (Bitboard(h) << 64) ^ Bitboard(l)
 
@@ -397,6 +397,6 @@ constexpr Bitboard KnightToMagicsInit[SQUARE_NB] = {
 };
 
 #undef B
-} // namespace Stockfish
+} // namespace CCStockfish
 
 #endif // #ifndef MAGICS_H_INCLUDED
