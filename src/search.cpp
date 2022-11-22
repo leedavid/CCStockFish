@@ -1090,8 +1090,11 @@ moves_loop: // When in check, search starts here
           // Do full depth search when reduced LMR search fails high
           if (value > alpha && d < newDepth)
           {
+              // Adjust full depth search based on LMR results - if result
+              // was good enough search deeper, if it was bad enough search shallower
               const bool doDeeperSearch = value > (alpha + 45 + 11 * (newDepth - d));
-              value = -search<NonPV>(pos, ss+1, -(alpha+1), -alpha, newDepth + doDeeperSearch, !cutNode);
+              const bool doShallowerSearch = value < bestValue + newDepth;
+              value = -search<NonPV>(pos, ss + 1, -(alpha + 1), -alpha, newDepth + doDeeperSearch - doShallowerSearch, !cutNode);
 
               int bonus = value > alpha ?  stat_bonus(newDepth)
                                         : -stat_bonus(newDepth);
@@ -1198,10 +1201,7 @@ moves_loop: // When in check, search starts here
               }
           }
       }
-      else
-         ss->cutoffCnt = 0;
-
-
+  
       // If the move is worse than some previously searched move, remember it to update its stats later
       if (move != bestMove)
       {
@@ -1452,11 +1452,12 @@ moves_loop: // When in check, search starts here
           && (*contHist[1])[pos.moved_piece(move)][to_sq(move)] < 0)
           continue;
 
-      // We prune after 2nd quiet check evasion where being 'in check' is implicitly checked through the counter
-      // and being a 'quiet' apart from being a tt move is assumed after an increment because captures are pushed ahead.
+      // movecount pruning for quiet check evasions
       if (   bestValue > VALUE_MATED_IN_MAX_PLY
-          && quietCheckEvasions > 1)
-          break;
+          && quietCheckEvasions > 1 
+          && !capture
+          && ss->inCheck)
+          continue;
 
       quietCheckEvasions += !capture && ss->inCheck;
 
