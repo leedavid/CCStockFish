@@ -325,10 +325,7 @@ string UCI::value(Value v, int ply) {
 
   stringstream ss;
 
-  if (abs(v) < VALUE_MATE_IN_MAX_PLY)
-      ss << "cp " << UCI::pawn_eval(v, ply);
-  else
-      ss << "mate " << (v > 0 ? VALUE_MATE - v + 1 : -VALUE_MATE - v) / 2;
+  ss << "cp " << UCI::pawn_eval(v, ply);
 
   return ss.str();
 }
