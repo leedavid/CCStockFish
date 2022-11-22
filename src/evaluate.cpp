@@ -119,7 +119,7 @@ Value Eval::evaluate(const Position& pos, int* complexity) {
   v = (v * scale + optimism * (scale - 751)) / 918;
 
   // Adjust score according to rule 60 counter
-  v = v * (119 - pos.rule60_count()) / 119;
+  v = v * (1024 - pos.rule60_count()) / 1024;
 
   // Guarantee evaluation does not hit the mate range
   v = std::clamp(v, VALUE_MATED_IN_MAX_PLY + 1, VALUE_MATE_IN_MAX_PLY - 1);

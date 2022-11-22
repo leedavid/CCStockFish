@@ -1533,10 +1533,10 @@ moves_loop: // When in check, search starts here
         return VALUE_NONE;
 
     if (v >= VALUE_MATE_IN_MAX_PLY)  // win
-        return VALUE_MATE - v > 119 - r60c ? VALUE_MATE_IN_MAX_PLY - 1 : v - ply;
+        return VALUE_MATE - v > 160 - r60c ? VALUE_MATE_IN_MAX_PLY - 1 : v - ply;
 
     if (v <= VALUE_MATED_IN_MAX_PLY) // loss
-        return VALUE_MATE + v > 119 - r60c ? VALUE_MATED_IN_MAX_PLY + 1 : v + ply;
+        return VALUE_MATE + v > 160 - r60c ? VALUE_MATED_IN_MAX_PLY + 1 : v + ply;
 
     return v;
   }
