@@ -77,7 +77,7 @@ extern Bitboard PawnAttacksTo[COLOR_NB][SQUARE_NB];
 
 int popcount(Bitboard b); // required for 128 bit pext
 
-/// Magic holds all magic bitboards relevant data for a single square
+/// Magic holds all magic bitboards relevant data for a single square 
 struct Magic {
   Bitboard  mask;
   Bitboard  magic;
