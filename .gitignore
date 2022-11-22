@@ -1,10 +1,4 @@
-# Files from build
-**/*.o
-**/*.s
 
-
-# Neural network for the NNUE evaluation
-**/*.nnue
 CCStockFish/
 tests/
 .vs/
